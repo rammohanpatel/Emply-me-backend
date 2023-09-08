@@ -1,7 +1,7 @@
 
 const express = require('express');
 const mongoose = require('mongoose');
-const User = require('./models/User'); // Import the Mongoose model
+const User = require('./User'); // Import the Mongoose model
 
 const app = express();
 const port = process.env.PORT || 3000;
