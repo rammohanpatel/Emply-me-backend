@@ -11,6 +11,10 @@ app.use(express.json());
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     console.log('Connected to MongoDB Atlas');
+
+    app.get('/', (req, res) => {
+        res.send("Welcome to EmployMe");
+    });
     
     // Define a route to handle form submissions
     app.post('/register', async (req, res) => {
