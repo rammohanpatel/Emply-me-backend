@@ -3,15 +3,17 @@ const express = require('express');
 const mongoose = require('mongoose');
 const User = require('./User'); // Import the Mongoose model
 
+const cors = require('cors');
+
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 
 const mongoURI = 'mongodb+srv://employ_me:9696861559EMPLOYME@cluster0.ngoecst.mongodb.net/?retryWrites=true&w=majority';
 app.use(express.json());
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     console.log('Connected to MongoDB Atlas');
-
+    app.use(cors());
     app.get('/', (req, res) => {
         res.send("Welcome to EmployMe");
     });
